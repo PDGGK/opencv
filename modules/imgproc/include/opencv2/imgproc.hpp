@@ -2327,7 +2327,7 @@ Check @ref tutorial_opening_closing_hats "the corresponding tutorial" for more d
 The function erodes the source image using the specified structuring element that determines the
 shape of a pixel neighborhood over which the minimum is taken:
 
-\f[\texttt{dst} (x,y) =  \min _{(x',y'):  \, \texttt{element} (x',y') \ne0 } \texttt{src} (x+x',y+y')\f]
+\f[\texttt{dst} (x,y) =  \min _{(x',y'):  \, \texttt{kernel} (x',y') \ne0 } \texttt{src} (x+x',y+y')\f]
 
 The function supports the in-place mode. Erosion can be applied several ( iterations ) times. In
 case of multi-channel images, each channel is processed independently.
@@ -2335,7 +2335,7 @@ case of multi-channel images, each channel is processed independently.
 @param src input image; the number of channels can be arbitrary, but the depth should be one of
 CV_8U, CV_16U, CV_16S, CV_32F or CV_64F.
 @param dst output image of the same size and type as src.
-@param kernel structuring element used for erosion; if `element=Mat()`, a `3 x 3` rectangular
+@param kernel structuring element used for erosion; if `kernel=Mat()`, a `3 x 3` rectangular
 structuring element is used. Kernel can be created using #getStructuringElement.
 @param anchor position of the anchor within the element; default value (-1, -1) means that the
 anchor is at the element center.
@@ -2359,7 +2359,7 @@ Check @ref tutorial_erosion_dilatation "the corresponding tutorial" for more det
 
 The function dilates the source image using the specified structuring element that determines the
 shape of a pixel neighborhood over which the maximum is taken:
-\f[\texttt{dst} (x,y) =  \max _{(x',y'):  \, \texttt{element} (x',y') \ne0 } \texttt{src} (x+x',y+y')\f]
+\f[\texttt{dst} (x,y) =  \max _{(x',y'):  \, \texttt{kernel} (x',y') \ne0 } \texttt{src} (x+x',y+y')\f]
 
 The function supports the in-place mode. Dilation can be applied several ( iterations ) times. In
 case of multi-channel images, each channel is processed independently.
@@ -2367,7 +2367,7 @@ case of multi-channel images, each channel is processed independently.
 @param src input image; the number of channels can be arbitrary, but the depth should be one of
 CV_8U, CV_16U, CV_16S, CV_32F or CV_64F.
 @param dst output image of the same size and type as src.
-@param kernel structuring element used for dilation; if element=Mat(), a 3 x 3 rectangular
+@param kernel structuring element used for dilation; if `kernel=Mat()`, a `3 x 3` rectangular
 structuring element is used. Kernel can be created using #getStructuringElement
 @param anchor position of the anchor within the element; default value (-1, -1) means that the
 anchor is at the element center.
